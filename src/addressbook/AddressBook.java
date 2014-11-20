@@ -31,11 +31,11 @@ public class AddressBook extends Application {
 
         //textFieldLayout and buttonLyout added to root layout
         root.setCenter(new TextFieldsPartial());
+        root.setRight(new TextAreaPartial());
         root.setBottom(new ButtonFieldsPartial());
-       // root.getChildren().add(new TextFieldsPartial());
-       // root.getChildren().add(new ButtonFieldsPartial());
+
         
-        Scene scene = new Scene(root, 300, 250);
+        Scene scene = new Scene(root, 400, 400);
         
         primaryStage.setTitle("Idea");
         primaryStage.setScene(scene);
