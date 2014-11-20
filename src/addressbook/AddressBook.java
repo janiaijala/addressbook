@@ -6,10 +6,12 @@
 package addressbook;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -25,37 +27,13 @@ public class AddressBook extends Application {
     public void start(Stage primaryStage) {
 
         // the root is the main layout
-        VBox root = new VBox();
-        
-        Label nameLabel = new Label("Nimi");
-        TextField nameField = new TextField();
-        
-        Label addressLabel = new Label("Osoite");
-        TextField addressField = new TextField();
-        
-        Label phoneLabel = new Label("Puhelin numero");
-        TextField phoneField = new TextField();
-        
-        //Do layout for textfiels components
-        VBox textFieldLayout = new VBox();
-        textFieldLayout.getChildren().add(nameLabel);
-        textFieldLayout.getChildren().add(nameField);
-        textFieldLayout.getChildren().add(addressLabel);
-        textFieldLayout.getChildren().add(addressField);
-        textFieldLayout.getChildren().add(phoneLabel);
-        textFieldLayout.getChildren().add(phoneField);
-        textFieldLayout.setStyle("-fx-padding:10 10 10 10");
-        
-        Button closeButton = new Button("Sulje");
-        Button saveButton = new Button("Tallenna");
-        HBox buttonLayout = new HBox();
-        buttonLayout.setStyle("-fx-padding:10;-fx-spacing:10");
-        buttonLayout.getChildren().add(closeButton);
-        buttonLayout.getChildren().add(saveButton);
+        BorderPane root = new BorderPane();
 
         //textFieldLayout and buttonLyout added to root layout
-        root.getChildren().add(textFieldLayout);
-        root.getChildren().add(buttonLayout);
+        root.setCenter(new TextFieldsPartial());
+        root.setBottom(new ButtonFieldsPartial());
+       // root.getChildren().add(new TextFieldsPartial());
+       // root.getChildren().add(new ButtonFieldsPartial());
         
         Scene scene = new Scene(root, 300, 250);
         
